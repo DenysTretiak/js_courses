@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+    const matrixOne = [
+		[1,2,3],
+		[8,9,4],
+		[7,6,5]
+	];
+
+	const matrixTwo = [
+		[1,2,3,4],
+		[12,13,14,5],
+		[11,16,15,6],
+		[10,9,8,7]
+];
+      
+    function snail(arr){
+       var arr_1 = [];
+
+       for (var i = 0; i<arr.length; i++){
+       	   for (var i1 = 0; i1<arr[i].length; i1++){
+               arr_1.push(arr[i][i1]);  
+       	   }
+       }
+
+       function compare(a, b){
+              return a - b;
+		}  
+
+       arr_1.sort(compare);
+
+       return arr_1;
+    }
+
+	console.log(snail(matrixTwo));
+
+	</script>
+	
+</body>
+</html>

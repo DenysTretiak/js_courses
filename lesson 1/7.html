@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const badstring = "Fuck this shit Friday";
+
+		function censor(string){
+            var bad1 = "fuck";
+			var bad2 = "shit";
+
+	          function word(badword){
+				var str = badword; //строка
+				var vowels = "aeiou"; //гласные
+				var arr = str.split('');
+				console.log(arr);
+				var pos, res = "";
+				var i = 0;
+				for (var i = 0; i<vowels.length; i++){
+					if(arr.indexOf(vowels[i]) > -1){
+						arr[arr.indexOf(vowels[i])] = "#";
+					}
+				}
+
+				return arr.join('');
+		     }
+		     console.log(word(bad2));
+
+			
+			if (string.indexOf(bad2)){
+			  var string2 =	string.slice(0, string.indexOf(bad2)) + bad2 + string.slice(string.indexOf(bad2) + bad2.length);
+			  console.log(string.indexOf(bad2));
+			}
+			return string2;
+		}  
+
+
+		console.log(censor(badstring));
+
+	</script>
+	
+</body>
+</html>

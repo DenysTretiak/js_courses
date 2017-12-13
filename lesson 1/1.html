@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+          function camelCase(string){
+              var arr = string.split(" ");
+              for (var i = 1; i<arr.length; i++){
+                   arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1); 
+              }
+
+              return arr.join('');
+
+             
+          }
+
+          console.log(camelCase('i like to have fun'));
+          
+	</script>
+</body>
+</html>
