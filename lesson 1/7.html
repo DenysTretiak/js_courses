@@ -6,41 +6,43 @@
 </head>
 <body>
 	<script>
-		const badstring = "Fuck this shit Friday";
+		const badstring = "Fuck this shit Friday.";
 
 		function censor(string){
-            var bad1 = "fuck";
-			var bad2 = "shit";
+            var bad = ['fuck', 'shit'];
 
 	          function word(badword){
-				var str = badword; //строка
-				var vowels = "aeiou"; //гласные
-				var arr = str.split('');
-				console.log(arr);
-				var pos, res = "";
-				var i = 0;
-				for (var i = 0; i<vowels.length; i++){
-					if(arr.indexOf(vowels[i]) > -1){
-						arr[arr.indexOf(vowels[i])] = "#";
-					}
-				}
+							var str = badword; //строка
+							var vowels = "aeiou"; //гласные
+							var arr = str.split('');
+							for (var i = 0; i<vowels.length; i++){
+								if(arr.indexOf(vowels[i]) > -1){
+									arr[arr.indexOf(vowels[i])] = "#";
+								}
+							}
 
-				return arr.join('');
+							return arr.join('');
 		     }
-		     console.log(word(bad2));
 
-			
-			if (string.indexOf(bad2)){
-			  var string2 =	string.slice(0, string.indexOf(bad2)) + bad2 + string.slice(string.indexOf(bad2) + bad2.length);
-			  console.log(string.indexOf(bad2));
-			}
-			return string2;
-		}  
+		     console.log(word(bad[0]));
+
+       var arr = badstring.toLowerCase().split(" ");
+			 console.log(arr);
+			 for (var i = 0; i < arr.length; i++){
+				 if (arr.indexOf(bad[i]) > -1) {
+					 arr[arr.indexOf(bad[i])] = word(bad[i]);
+					 console.log(i);
+			 }
+
+		}
+		console.log(arr);
+		return arr.join(" ");
+	}
 
 
 		console.log(censor(badstring));
 
 	</script>
-	
+
 </body>
 </html>

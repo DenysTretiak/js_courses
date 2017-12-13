@@ -18,10 +18,16 @@
 						{name: 'Alina', age: 20, city: 'Kiev', gender: 'female'},
 						{name: 'Alla', age: 21, city: 'Lviv', gender: 'female'},
 					];
-	    function  compare(a, b){
-	    	return a.name - b.name;
-	    }
 
+
+	   function compareName(personB, personA) {
+		  return personB.name - personA.name;
+		}
+		group.sort(compareName);
+
+		for(var i = 0; i < group.length; i++) {
+			  console.log(group[i].name); // Вовочка Маша Вася
+			}
 	    				
 	</script>
 	
