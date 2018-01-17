@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+
+
+      function union(arr_1, arr_2){
+          let arr_3 = [];
+          arr_2.forEach(function(item,i){
+            arr_3.push(item)
+          });
+          arr_1.forEach(function(item,i){
+              arr_3.push(arr_1[i]);
+          });
+
+          arr_3.sort(function(a, b) {
+            return a - b;
+          });
+
+          for(let i = 0; i<arr_3.length; i++){
+            for(let j = i + 1; j<arr_3.length; j++){
+              if (arr_3[i] === arr_3[j]){
+                console.log(i + ' i' )
+                arr_3.splice(i,1);
+              }
+            }
+          }
+          console.log(arr_3);
+       return (arr_3);
+      }
+      // console.log(union([2,4,6],[1,10,12,6])); // [1,2,4,6,10,12]  // 6 - do not repeat twice
+        console.log(union([25,3,18,20], [75,18,20,3])); // [3,18,20,25,75]
+  </script>
+
+</body>
+</html>

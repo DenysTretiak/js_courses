@@ -8,38 +8,41 @@
 	<script>
     const matrixOne = [
 		[1,2,3],
-		[8,9,4],
-		[7,6,5]
+		[8,9,'four'],
+		['seven',6,5]
 	];
 
 	const matrixTwo = [
-		[1,2,3,4],
+		[1,2,3,'four'],
 		[12,13,14,5],
 		[11,16,15,6],
 		[10,9,8,7]
 ];
-      
+
     function snail(arr){
-       var arr_1 = [];
+       let arr_1 = [];
 
-       for (var i = 0; i<arr.length; i++){
-       	   for (var i1 = 0; i1<arr[i].length; i1++){
-               arr_1.push(arr[i][i1]);  
-       	   }
-       }
-
-       function compare(a, b){
-              return a - b;
-		}  
-
-       arr_1.sort(compare);
-
+      for (let i = 0; i<arr.length - 1; i++){
+				arr_1.push(arr[0][i]);
+			}
+			for (let i = 0; i<arr.length - 1; i++){
+				arr_1.push(arr[i][arr.length - 1]);
+			}
+			for (let i = arr.length - 1; i>0; i--){
+				arr_1.push(arr[arr.length - 1][i]);
+			}
+			for (let i = arr.length - 1; i>0; i--){
+				arr_1.push(arr[i][0]);
+			}
+			for (let i = 1; i<arr.length-1; i++){
+				arr_1.push(arr[1][i]);
+			}
        return arr_1;
     }
-
-	console.log(snail(matrixTwo));
+    // суть в тому що має бути розклад іменно по уліткі, дивись я добавив строку, і все зломалось
+	console.log(snail(matrixOne));
 
 	</script>
-	
+
 </body>
 </html>

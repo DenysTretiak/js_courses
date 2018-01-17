@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+    // 6) return palindrome
+  	// 			palindrome('Sire, was I ere I saw Eris?')// [['saw', 'was'], ['Sire', 'Eris']];
+  	// 			palindrome('Enid and Edna dine.') // [['Enid', 'dine']]
+
+    function palindrome(string){
+       let arr = string.split(' ');
+       let arr_1 = [];
+
+       const punctuation = ",!?./";
+
+       for (let i = 0; i<arr.length; i++){
+         let a = arr[i];
+         a = a.toLowerCase();
+         a = a.split('').sort();
+         a = a.join('');
+         arr_1.push(a);
+
+
+         for(let j = 0; j<arr_1.length; j++){
+           for(let k = j + 1; k<arr_1.length; k++){
+             if(arr_1[j] == arr_1[k] && arr[j].length>1){
+               console.log(j + ' j ' + k + ' k');
+               var arr_first = [];
+               var arr_second = [];
+               arr_first.push(j);
+               arr_first.push(k);
+               var some_1 = j;
+               var some_2 = k;
+             }
+           }
+         }
+
+       }
+       console.log(arr_first);
+       return( arr[some_1] + ' ' + arr[some_2]);
+
+    }
+
+    console.log(palindrome('Sire, was I ere I saw Eris?'));// [['saw', 'was'], ['Sire', 'Eris']];
+  </script>
+</body>
+</html>

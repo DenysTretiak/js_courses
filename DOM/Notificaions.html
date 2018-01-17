@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+       <html lang="en">
+       <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+         <title>Document</title>
+       </head>
+       <body>
+         <style>
+         .notification {
+            position: fixed;
+            z-index: 1000;
+            padding: 5px;
+            border: 1px solid black;
+            font: normal 20px Georgia;
+            background: white;
+            text-align: center;
+          }
+
+          .welcome {
+            background: red;
+            color: yellow;
+          }
+         </style>
+         <p>
+           <h1>Уведомление</h1>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae labore soluta voluptatum magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum officiis soluta temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.
+
+В CSS есть готовый класс notification, который можно ставить уведомлению.
+         </p>
+
+        <script type="text/javascript">
+
+
+    // Напишите функцию showNotification(options), которая показывает уведомление, пропадающее через 1.5 сек.     
+    // function showNotification(options) {
+    //   // ваш код
+    // }
+    // Пример использования:
+    //
+    // // покажет элемент с текстом "Привет" и классом welcome справа-сверху окна
+    // showNotification({
+    //   top: 10,
+    //   right: 10,
+    //   html: "Привет",
+    //   className: "welcome"
+    // });
+    // Демо в новом окне
+    //
+    // Элемент уведомления должен иметь CSS-класс notification, к которому добавляется класс из options.className, если есть. Исходный документ содержит готовые стили.
+
+        function showNotification(options) {
+          let div = document.createElement('div');
+          div.innerHTML = options.html;
+          div.classList.add(options.className);
+          div.classList.add('notification');
+          div.style.top = options.top + 'px';
+          div.style.right = options.right + 'px';
+          setInterval(()=>{
+            document.body.appendChild(div);
+            div.innerHTML = i;
+          },1500)
+          setInterval(()=>{
+            document.body.removeChild(div);
+          },3000)
+
+
+        }
+        showNotification({
+            top: 10,
+            right: 10,
+            html: "Привет",
+            className: "welcome"
+          });
+
+         </script>
+
+       </body>
+       </html>

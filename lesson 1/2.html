@@ -7,16 +7,15 @@
 	<body>
 		<script>
 			function someFunc(a, b){
-				var square = 1;
-                for (var i = 0; i<b; i++){
+				// not var
+				let square = 1;
+                for (let i = 0; i<b; i++){
                    square *= a;
                 }
 
                 return square;
-              
-			}
 
-			console.log(someFunc(3, 3));
+			}
 		</script>
 	</body>
-	</html>	
+	</html>

@@ -19,18 +19,15 @@
 					{name: 'Alina', age: 20, city: 'Kiev', gender: 'female'},
 					{name: 'Alla', age: 21, city: 'Lviv', gender: 'female'},
 				];
-        
+
         function showInfo(string){
-             var string_1 = 'My name is ' + string.name + '. I have ' + string.age + ' years old. I am ' + string.gender + ' and i am from ' + string.city;
-             return string_1;
+        	// var + лишня внутрішня змінна, можна було почати з return + використати ``
+             return 'My name is ' + string.name + '. I have ' + string.age + ' years old. I am ' + string.gender + ' and i am from ' + string.city;
         }
         // 'My name is Artem. I have 21 years old. I am male and i am from Odesa'.
 
-		console.log(group[0].name);
-        
-
-	  console.log(showInfo(group[3]));
+	  console.log(showInfo(group[5]));
 	</script>
-	
+
 </body>
 </html>

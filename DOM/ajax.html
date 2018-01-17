@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<input type="text" id="search">
+
+  <script>
+  document.getElementById('search').addEventListener('keyup', makeRequest, false);
+
+  function makeRequest({keyCode, target}) {
+  if (keyCode === 13) {
+    const firstUser = makeXHR(`https://api.github.com/search/users?q=${target.value || 'kenwheeler'}`).items[0];
+    console.log(firstUser);
+    addInfoToDOM(firstUser);
+  }
+  }
+
+  function addInfoToDOM({followers_url, login, avatar_url}) {
+  const wrap = document.createElement('div');
+  const img = document.createElement('img');
+  const name = document.createElement('h3');
+  const button = document.createElement('input');
+
+  name.innerText = login;
+  img.src = avatar_url;
+  button.type = 'button';
+  button.value = 'show followers!!!';
+
+  wrap.appendChild(name);
+  wrap.appendChild(img);
+  wrap.appendChild(button);
+
+  document.body.appendChild(wrap);
+
+  getFollowers(button, followers_url)
+  }
+
+
+  function getFollowers(el, url){
+  el.addEventListener('click', () => {
+    const followers = makeXHR(url);
+    const ppl = followers.map(({followers_url, login, avatar_url}) => {
+        const wrap = document.createElement('div');
+        const img = document.createElement('img');
+        const name = document.createElement('h3');
+        const button = document.createElement('input');
+
+        name.innerText = login;
+        img.src = avatar_url;
+        button.type = 'button';
+        button.value = 'show followers!!!';
+
+        wrap.appendChild(name);
+        wrap.appendChild(img);
+        wrap.appendChild(button);
+        getFollowers(button, followers_url);
+        return wrap;
+    });
+    const fragment = document.createDocumentFragment();
+
+    ppl.forEach(item => {
+      fragment.appendChild(item);
+    });
+
+
+    document.body.appendChild(fragment);
+  }, false)
+  }
+
+  function makeXHR(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, false);
+  xhr.send();
+
+  if (xhr.status === 200) {
+    return(JSON.parse(xhr.responseText));
+  }
+  }
+
+  </script>
+</body>
+</html>

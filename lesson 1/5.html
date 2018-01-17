@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -6,6 +6,13 @@
 </head>
 <body>
 	<script>
+	// 5) Написать ф-ю для сортировки массива group. Первый параметр сам массив, второй ключ по которому проходит сортировка.
+	// 	сортировать строки по алфавиту, числа по возростанию. По желанию добавить 3 параметр needRevert.
+  //
+	// 	Пример func(group, 'name') => массив отсортирован по name, первые на имя А
+  //
+	// 	Пример func(group, 'name', true) => массив отсортирован по name, последние на имя А
+  //
 		const group = [
 						{name: 'Vova', age: 20, city: 'Kiev', gender: 'male'},
 						{name: 'Artem', age: 21, city: 'Odesa', gender: 'male'},
@@ -16,20 +23,41 @@
 						{name: 'Ben', age: 20, city: 'Kiev', gender: 'male'},
 						{name: 'Anton', age: 19, city: 'Lviv', gender: 'male'},
 						{name: 'Alina', age: 20, city: 'Kiev', gender: 'female'},
-						{name: 'Alla', age: 21, city: 'Lviv', gender: 'female'},
+						{name: 'Alla', age: 21, city: 'Lviv', gender: 'female'}
 					];
 
+		function compare(obj, param, reverse){
+       function compareSome(a, b){
+				 if (a[param] > b[param]) {
+					 return 1;
+				 }
+				 if (a[param] < b[param]) {
+					 return -1;
+				 }
+				 return 0;
+			 }
+			 obj.sort(compareSome);
+			 if (reverse === true){
+				 obj.reverse();
+			 }
 
-	   function compareName(personB, personA) {
-		  return personB.name - personA.name;
-		}
-		group.sort(compareName);
 
-		for(var i = 0; i < group.length; i++) {
-			  console.log(group[i].name); // Вовочка Маша Вася
+				obj.forEach(function(i){
+					 console.log(i.name + ' ' + i.age);
+				})
+				console.log(param);
+
 			}
+compare(group, 'name', false);
+
+		// 1 краще робити це в ф-ї,
+		// 2 перебирати елементи краще не в for,
+		// а якщо ми захочем зрівнювати по age? краще це передбачити
+
+
+
 
 	</script>
 
 </body>
-</html> -->
+</html>
